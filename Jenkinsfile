@@ -4,7 +4,7 @@ pipeline{
         choice(name: 'VERSION', choices: ['1.0', '1.1', '1.2'])
         booleanParam(name: 'executeTest', defaultValue: True)
     }
-        stage{
+        stages{
             stage("build"){
                 steps{
                     echo "Building the application"
