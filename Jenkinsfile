@@ -26,7 +26,7 @@ pipeline{
                     }
                 }
                 steps{
-                    echo "Deploying the application ${VERSION}"
+                    echo "Deploying the application"
                 }
             }
         }
