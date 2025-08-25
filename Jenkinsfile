@@ -15,7 +15,7 @@ pipeline{
                     }
                 }
                 steps{
-                    echo "Building the application"
+                    echo "Building the application using ${BRANCH_NAME}"
                 }
             }
 
@@ -26,7 +26,7 @@ pipeline{
                     }
                 }
                 steps{
-                    echo "Deploying the application"
+                    echo "Deploying the application using ${BRANCH_NAME}"
                 }
             }
         }
