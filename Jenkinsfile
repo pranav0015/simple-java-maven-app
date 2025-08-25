@@ -11,11 +11,11 @@ pipeline{
         stage("build"){
                 when{
                     expression{
-                        BRANCH_NAME == 'master'
+                        BRANCH_NAME == 'jenkins-job'
                     }
                 }
                 steps{
-                    echo "Building the application"
+                    echo "Building the application using ${BRANCH_NAME}"
                 }
             }
 
@@ -26,7 +26,7 @@ pipeline{
                     }
                 }
                 steps{
-                    echo "Deploying the application"
+                    echo "Deploying the application using ${BRANCH_NAME}"
                 }
             }
         }
