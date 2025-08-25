@@ -1,28 +1,32 @@
 pipeline{
     agent any
-    parameters{
-        choice(name: 'VERSION', choices: ['1.0', '1.1', '1.2'])
-        booleanParam(name: 'executeTest', defaultValue: true)
-    }
-        stages{
+         stage("test"){
+                steps{
+                    echo "Testing the application"
+                    echo "Executing branch ${BRANCH_NAME}"
+                }
+            }
+
+         stage{
             stage("build"){
+                when{
+                    expression{
+                        BRANCH_NAME == 'master'
+                    }
+                }
                 steps{
                     echo "Building the application"
                 }
             }
-         stage("test"){
+
+         stage("deploy"){
                 when{
                     expression{
-                        params.executeTest 
+                        BRANCH_NAME == 'master'
                     }
                 }
                 steps{
-                    echo "Testing the application"
-                }
-            }
-         stage("deploy"){
-                steps{
-                    echo "Deploying the application ${params.VERSION}"
+                    echo "Deploying the application ${VERSION}"
                 }
             }
         }
