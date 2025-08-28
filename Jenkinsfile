@@ -13,7 +13,7 @@ pipeline{
                     script{
                     gv.testApp()
                     }
-                    echo "Executing branch "
+                    echo "Executing is in progress "
                 }
             }
 
