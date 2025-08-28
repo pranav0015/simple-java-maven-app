@@ -1,9 +1,16 @@
 pipeline{
     agent any
          stages{
+             stage("init"){
+                 steps{
+                     script{
+                         gv = load "script.groovy"
+                     }
+                 }
+             }
              stage("test"){
                 steps{
-                    echo "Testing the application"
+                    gv.testApp()
                     echo "Executing branch ${BRANCH_NAME}"
                 }
             }
