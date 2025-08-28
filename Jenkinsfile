@@ -1,4 +1,3 @@
-
 pipeline{
     agent any
          stages{
@@ -14,29 +13,19 @@ pipeline{
                     script{
                     gv.testApp()
                     }
-                    echo "Executing branch ${BRANCH_NAME}"
+                    echo "Executing branch "
                 }
             }
 
         stage("build"){
-                when{
-                    expression{
-                        BRANCH_NAME == 'jenkins-job'
-                    }
-                }
                 steps{
-                    echo "Building the application using ${BRANCH_NAME}"
+                    echo "Building the application using }"
                 }
             }
 
          stage("deploy"){
-                when{
-                    expression{
-                        BRANCH_NAME == 'master'
-                    }
-                }
                 steps{
-                    echo "Deploying the application using ${BRANCH_NAME}"
+                    echo "Deploying the application using "
                 }
             }
         }
