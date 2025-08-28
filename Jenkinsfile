@@ -1,4 +1,4 @@
-def gv
+
 pipeline{
     agent any
          stages{
@@ -11,7 +11,9 @@ pipeline{
              }
              stage("test"){
                 steps{
+                    script{
                     gv.testApp()
+                    }
                     echo "Executing branch ${BRANCH_NAME}"
                 }
             }
