@@ -1,5 +1,10 @@
 pipeline{
     agent any
+
+    environment{
+    BRANCH_NAME = "master"
+}
+
         stages{
 
             stage("test"){
@@ -16,6 +21,11 @@ pipeline{
 
             stage("deploy"){
                 steps{
+                    when{
+                        expression{
+                        BRANCH_NAME == 'master'
+                    }
+                }
                     echo "Deploying the application ${BRANCH_NAME}"
                 }
             }
