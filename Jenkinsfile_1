@@ -5,26 +5,23 @@ pipeline{
     }
         stages{
 
-         stage("test"){
+            stage("test"){
                 steps{
                     echo "Testing the application"
                     echo "Executing branch ${BRANCH_NAME}"
                 }
             }
-
-         stage{ 
             stage("build"){
-
                 steps{
                     echo "Building the application ${BRANCH_NAME}"
                 }
             }
 
-         stage("deploy"){
+            stage("deploy"){
                 steps{
                     echo "Deploying the application ${BRANCH_NAME}"
                 }
             }
         }
-    }
 }
+
