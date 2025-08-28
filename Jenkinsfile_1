@@ -3,6 +3,8 @@ pipeline{
     environment{
         BRANCH_NAME = 'master'
     }
+        stages{
+
          stage("test"){
                 steps{
                     echo "Testing the application"
@@ -24,4 +26,5 @@ pipeline{
                 }
             }
         }
+    }
 }
